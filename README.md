@@ -69,8 +69,7 @@
 
 ### Prerequisites
 
-- [Python 3.12](https://www.python.org/downloads/)
-- [UV](https://docs.astral.sh/uv/getting-started/installation/)
+- [Docker](https://docs.docker.com/get-docker/)
 
 ### Installation
 
@@ -78,16 +77,35 @@
    ```sh
    git clone https://github.com/fathulfahmy/google-doc-sheet-bypass.git
    ```
+2. Run with Docker Compose
+   ```sh
+   docker compose up
+   ```
+3. Open browser http://localhost:8000
+
+### Making Changes
+
+If you make any changes to the code, rebuild the container:
+```sh
+docker compose up --build --force-recreate
+```
+
+### Development Setup
+
+For local development without Docker:
+
+1. Prerequisites
+   - [Python 3.12](https://www.python.org/downloads/)
+   - [UV](https://docs.astral.sh/uv/getting-started/installation/)
 2. Install dependencies
    ```sh
    uv sync
-   uv run pre-commit install # development only
+   uv run pre-commit install
    ```
 3. Run project
    ```sh
    uv run uvicorn main:app
    ```
-4. Open browser http://localhost:8000
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
