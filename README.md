@@ -35,8 +35,8 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -67,42 +67,68 @@
 
 ## Getting Started
 
-### Prerequisites
-
-- [Docker](https://docs.docker.com/get-docker/)
-
-### Installation
+## Installation
 
 1. Clone repo
+
    ```sh
    git clone https://github.com/fathulfahmy/google-doc-sheet-bypass.git
    ```
-2. Run with Docker Compose
+2. Navigate to project directory
+    ```sh
+    cd google-doc-sheet-bypass
+    ```
+
+## Usage
+
+### Option 1: Python
+
+**Prerequisites**
+
+- [Python 3.12](https://www.python.org/downloads/)
+- [UV](https://docs.astral.sh/uv/getting-started/installation/)
+
+1. Run app
+
+```sh
+uv sync
+uv run uvicorn main:app
+```
+
+2. Open browser http://localhost:8000
+
+## Option 2: Docker
+
+**Prerequisites**
+
+- [Docker](https://docs.docker.com/engine/install/)
+
+1. Run app
+
    ```sh
    docker compose up
    ```
-3. Open browser http://localhost:8000
 
-### Making Changes
+2. Open browser http://localhost:8000
 
-If you make any changes to the code, rebuild the container:
-```sh
-docker compose up --build --force-recreate
-```
+> [!NOTE]  
+> Rebuild docker container after making changes to the code
+>
+> ```sh
+> docker compose up --build --force-recreate
+> ```
 
-### Development Setup
+### Development
 
-For local development without Docker:
+1. Install dependencies
 
-1. Prerequisites
-   - [Python 3.12](https://www.python.org/downloads/)
-   - [UV](https://docs.astral.sh/uv/getting-started/installation/)
-2. Install dependencies
    ```sh
    uv sync
    uv run pre-commit install
    ```
-3. Run project
+
+2. Run project
+
    ```sh
    uv run uvicorn main:app
    ```
